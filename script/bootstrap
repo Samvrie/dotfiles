@@ -187,13 +187,13 @@ ln -s $HOME/.dotfiles/bin $HOME/bin && success "symlink for $HOME/bin folder cre
 ln -s $HOME/.dotfiles/tmux $HOME/.tmux && success "symlink for $HOME/.tmux folder created"
 
 # symlink VSCode User Settings
-if [ -d $HOME/Library/Application\ Support/Code/User ] ; then 
-  ln -s $HOME/.dotfiles/code/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
-  success "symlink for vs code settings created"
-else
-  info "symlink for vs code settings not created"
-  echo "VS Code does not appear to be installed or has not been launched yet. Cannot create symlink for VS Code User settings..."
-fi
+# if [ -d $HOME/Library/Application\ Support/Code/User ] ; then 
+#   ln -s $HOME/.dotfiles/code/settings.json $HOME/Library/Application\ Support/Code/User/settings.json
+#   success "symlink for vs code settings created"
+# else
+#   info "symlink for vs code settings not created"
+#   echo "VS Code does not appear to be installed or has not been launched yet. Cannot create symlink for VS Code User settings..."
+# fi
 
 # install Source Code Pro nerd font
 cp $HOME/.dotfiles/Source\ Code\ Pro\ Nerd\ Font\ Complete.ttf /Library/Fonts
