@@ -25,6 +25,7 @@ brew 'yarn'
 
 cask 'lastpass'
 cask 'firefox'
+cask 'dotnet'
 cask 'google-chrome'
 cask 'handbrake'
 cask 'iterm2'
