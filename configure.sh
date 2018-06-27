@@ -65,38 +65,6 @@ echo "Now installing powerlevel9k..."
 echo ''
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
 
-# vimrc vundle install
-echo ''
-echo "Now installing vundle..."
-echo ''
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-
-# Pathogen install
-echo ''
-echo "Now installing Pathogen..."
-echo ''
-mkdir -p ~/.vim/autoload ~/.vim/bundle && \
-	curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim
-
-# Nerdtree for vim install
-echo ''
-echo "Now installing Nerdtree for Vim..."
-echo ''
-git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
-
-# Vim color scheme install
-echo ''
-echo "Now installing vim wombat color scheme..."
-echo ''
-git clone https://github.com/sheerun/vim-wombat-scheme.git ~/.vim/colors/wombat 
-mv ~/.vim/colors/wombat/colors/* ~/.vim/colors/
-
-# Midnight commander install
-echo ''
-echo "Now installing Midnight commander..."
-echo ''
-sudo apt-get install mc -y
-
 # Speedtest-cli, pip and jq install
 echo ''
 echo "Now installing Speedtest-cli, pip, tmux and jq..."
@@ -114,13 +82,13 @@ mv dircolors.256dark .dircolors
 
 # Pull down personal dotfiles
 echo ''
-read -p "Do you want to use jldeen's dotfiles? y/n" -n 1 -r
+read -p "Do you want to use sam's dotfiles? y/n" -n 1 -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
     echo ''
-	echo "Now pulling down jldeen dotfiles..."
-	git clone https://github.com/jldeen/dotfiles.git ~/.dotfiles
+	echo "Now pulling down samvrie dotfiles..."
+	git clone https://github.com/samvrie/dotfiles.git ~/.dotfiles
 	echo ''
 	cd $HOME/.dotfiles && echo "switched to .dotfiles dir..."
 	echo ''
@@ -129,13 +97,13 @@ then
 	echo "Now configuring symlinks..." && $HOME/.dotfiles/script/bootstrap
     if [[ $? -eq 0 ]]
     then
-        echo "Successfully configured your environment with jldeen's dotfiles..."
+        echo "Successfully configured your environment with samvrie's dotfiles..."
     else
-        echo "jldeen's dotfiles were not applied successfully..." >&2
+        echo "samvrie's dotfiles were not applied successfully..." >&2
 fi
 else 
 	echo ''
-    echo "You chose not to apply jldeen's dotfiles. You will need to configure your environment manually..."
+    echo "You chose not to apply samvrie's dotfiles. You will need to configure your environment manually..."
 	echo ''
 	echo "Setting defaults for .zshrc and .bashrc..."
 	echo ''

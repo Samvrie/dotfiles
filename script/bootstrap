@@ -5,6 +5,8 @@
 cd "$(dirname "$0")/.."
 DOTFILES_ROOT=$(pwd -P)
 
+export WINDOWS_HOME="/mnt/c/Users/SamuelVrielynck"
+
 set -e
 
 echo ''
@@ -140,17 +142,6 @@ install_dotfiles () {
 setup_gitconfig
 install_dotfiles
 
-# If we're on a Mac, let's install and setup homebrew.
-if [ "$(uname -s)" == "Darwin" ]
-then
-  info "installing dependencies"
-  if source bin/dot | while read -r data; do info "$data"; done
-  then
-    success "dependencies installed"
-  else
-    fail "error installing dependencies"
-  fi
-fi
 ## JD edit
 
 #backup old bin, if exists
@@ -175,22 +166,11 @@ echo "Now installing tmux plugin manager..."
 echo ''
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-
-# install Source Code Pro nerd font on Linux systems (not wsl) and configure terminal
-# https://github.com/yktoo/yktools/blob/master/gnome-terminal-profile
-if [ ! -e /mnt/c/Users ]
-then
-  sudo cp $HOME/.dotfiles/Source\ Code\ Pro\ Nerd\ Font\ Complete\ Mono.ttf /usr/local/share/fonts
-  sudo chown root /usr/local/share/fonts/Source\ Code\ Pro\ Nerd\ Font\ Complete\ Mono.ttf
-  sudo fc-cache -fv
-  $HOME/.dotfiles/terminal/gnome-terminal-profile import $HOME/.dotfiles/terminal/terminal.gnome && echo "terminal profile loaded successfully!"
-  # symlink VSCode User Settings
-  if [ -e $HOME/.config/Code/User ]
+if [ ! -e /mnt/c/Program\ Files/Microsoft\ VS\ Code ]
   then
-    ln -s $HOME/.dotfiles/code/settings.json $HOME/.config/Code/User/settings.json && echo "VS Code settings.json applied successfully!"
+    ln -s $HOME/.dotfiles/code/settings.json $WINDOWS_HOME/AppData/Roaming/Code/User/settings.json && echo "VS Code settings.json applied successfully!"
   else
     echo "No installation of VS Code found. Will not attempt to symlink VS Code settings.json."
-  fi
 fi
 
 echo ''
