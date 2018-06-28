@@ -17,7 +17,7 @@ Find-PackageProvider $provider | Install-PackageProvider
 Import-PackageProvider $provider
 
 Write-Progress -Activity "Installing dependencies" -Status "Installing tools"
-Install-Package -ProviderName $provider -Name 7zip git docker kubernetes-cli
+Install-Package -ProviderName $provider -Name 7zip git docker kubernetes-cli firacode
 
 Write-Progress -Activity "Installing dependencies" -Status "Installing software"
 Install-Package -ProviderName $provider -Name vscode chrome spotify
