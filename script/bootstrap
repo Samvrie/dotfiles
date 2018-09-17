@@ -169,7 +169,7 @@ then
 fi
 
 echo ''
-info "starting jldeen mods"
+info "starting samvrie mods"
 #backup old bin, if exists
 if [ -d $HOME/bin ]
 then
@@ -247,7 +247,7 @@ success "speedtest-cli bandwidth.json created"
 
 # iterm2 config
 echo ''
-read -p "Do you currently use iTerm2 and would you like to set jldeen's custom colors? y/n" -n 1 -r
+read -p "Do you currently use iTerm2 and would you like to set samvrie's custom colors? y/n" -n 1 -r
 echo ''
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -257,12 +257,12 @@ then
   defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
     if [[ $? -eq 0 ]]
     then
-        success "successfully configured iTerm2 to use jldeen's custom colors..."
+        success "successfully configured iTerm2 to use samvrie's custom colors..."
     else
-        fail "failed to apply jldeen's custom colors..." >&2
+        fail "failed to apply samvrie's custom colors..." >&2
 fi
 else 
-    echo "You chose not to use iTerm2 or jldeen's custom colors."
+    echo "You chose not to use iTerm2 or samvrie's custom colors."
 fi
 
 echo ''
